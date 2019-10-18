@@ -64,18 +64,6 @@ class WhatsApp:
             sendingElement.click()
     
     def get_messages(self):
-        '''
-        //*[@id="pane-side"]/div[1]/div/div/div[15]/div/div/div[2]/div[2]/div[2]/span[1]/div/span
-
-        //*[@id="pane-side"]/div[1]/div/div/div[15]/div/div/div[2]
-        '''
-
-        #Open the sender element box
-        # element = self.__driver.find_element_by_xpath(self.__notificationBox)
-        # element.click()
-        # element.click()
-        # print(element)
-        
         soup = BeautifulSoup(self.__driver.page_source, 'html.parser')
         notification = soup.find('span', class_=self.__notificationBox).findParent('div', class_='_2WP9Q')
         xpath = xpath_soup(notification)
